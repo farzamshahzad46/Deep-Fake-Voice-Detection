@@ -1,149 +1,73 @@
-```markdown
-# Deep-Fake-Voice-Detection
+📢 Deepfake Voice Detection :
 
-<div align="center">
+This project is a voice analysis tool that uses machine learning and deep learning to detect whether an uploaded voice recording is real or a deepfake.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=6E99C3&vCenter=true&multiline=true&width=450&height=100&lines=Deep-Fake-Voice-Detection;Cutting-Edge+Voice+Detection+Project;Modern%2C+Professional+Solutions+for+Voice+Integrity)](https://github.com/farzamshahzad46/Deep-Fake-Voice-Detection)
+It’s built with a clean and interactive Streamlit web interface, allowing users to upload audio files (.wav or .mp3) and instantly get results with a confidence score.
 
-</div>
+🧠 How It Works
 
----
+🎧 Extracts MFCC audio features using Librosa
 
-## 🎯 Project Overview
+🧾 Transcribes the audio using OpenAI's Whisper
 
-Deep-Fake-Voice-Detection is a state-of-the-art project designed to detect and prevent the use of deep-fake voices. Leveraging advanced machine learning techniques, this project ensures the integrity of audio communications, providing peace of mind in an era of digital deception.
+🔤 Converts the transcript into text features using TF-IDF
 
-- **Key Value Propositions:**
-  - High accuracy in deep-fake detection
-  - User-friendly interface
-  - Scalable and adaptable to various platforms
+➕ Combines audio and text features into a single input
 
-- **Live Demo:** (Link to live demo, if available)
+📊 Uses a trained XGBoost model to classify the voice
 
-## ✨ Key Features
+✅ Displays whether it’s a REAL or FAKE voice with confidence
 
-- 🔍 **Advanced Detection:** Utilizes machine learning models to identify deep-fake voices with high accuracy.
-- 🔒 **Voice Integrity:** Ensures authenticity in audio communications.
-- 🚀 **Scalable Solutions:** Adaptable to various use cases and platforms.
-- 📊 **Detailed Metrics:** Provides comprehensive performance metrics.
+📂 Project Files
 
-## 🚀 Quick Start
+streamlit.py – Frontend: handles file upload & results display
 
-### Prerequisites
+prediction.py – Backend: processes audio & runs predictions
 
-- Python 3.8+
-- Pip
+xgb_model.pkl – Pretrained XGBoost model
 
-### Installation
+tfidf_vectorizer.pkl – TF-IDF model for transcript
 
-```bash
-git clone https://github.com/farzamshahzad46/Deep-Fake-Voice-Detection.git
-cd Deep-Fake-Voice-Detection
-pip install -r requirements.txt
-```
+label_encoder.pkl – For converting predicted labels
 
-### Usage Example
+⚙️ How to Use
 
-```python
-import prediction
+Clone the repository
+git clone https://github.com/yourusername/deepfake-voice-detector
 
-# Load the model
-model = prediction.load_model('xgb_model.pkl')
+Install the required libraries
+pip install streamlit librosa numpy joblib openai-whisper torch scikit-learn xgboost
 
-# Detect deep-fake voice
-result = model.predict('path_to_audio_file')
-print(f'Is the voice deep-fake? {result}')
-```
+Run the application
+streamlit run streamlit.py
 
-## 📊 Statistics & Metrics
+Upload a voice recording (.wav or .mp3)
 
-| Statistic       | Value         |
-|-----------------|---------------|
-| Repository Stars| ![Stars](https://img.shields.io/github/stars/farzamshahzad46/Deep-Fake-Voice-Detection) |
-| Forks           | ![Forks](https://img.shields.io/github/forks/farzamshahzad46/Deep-Fake-Voice-Detection) |
+✅ See the result — whether it’s real or a deepfake, with a confidence score.
 
-### Language Breakdown
+🧪 Want to Train Your Own Model?
 
-| Language | Percentage |
-|----------|------------|
-| Python   | 100.0%     |
+Use the train_xgboost.py script with your own dataset. Just extract MFCCs, transcripts, and combine them to train a custom classifier.
 
-## 🛠️ Tech Stack
+🔗 Dependencies
 
-- ![Python](https://img.shields.io/badge/Python-3.8+-blue)
-- ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-0.24.2-yellowgreen)
-- ![XGBoost](https://img.shields.io/badge/XGBoost-1.4.2-red)
-- ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.5.0-orange)
+Streamlit
 
-### Architecture Overview
+Librosa
 
-- **Core Model:** XGBoost for accurate detection
-- **Data Preprocessing:** TF-IDF Vectorizer for feature extraction
-- **Model Serialization:** Pickle for model and data serialization
+Whisper
 
-### Dependencies
+Torch
 
-```plaintext
-- numpy
-- pandas
-- scikit-learn
-- xgboost
-- tensorflow
-- pickle
-```
+Scikit-learn
 
-## 📖 Detailed Documentation
+XGBoost
 
-### Installation Guide
+Joblib
 
-```bash
-git clone https://github.com/farzamshahzad46/Deep-Fake-Voice-Detection.git
-cd Deep-Fake-Voice-Detection
-pip install -r requirements.txt
-```
+NumPy
 
-### Configuration Options
+👨‍💻 Author
 
-The main configuration files are:
-- `label_encoder.pkl`
-- `tfidf_vectorizer.pkl`
-- `val_vectorized.pkl`
-- `xgb_model.pkl`
-
-### Usage Examples
-
-```python
-# Load the model
-model = prediction.load_model('xgb_model.pkl')
-
-# Detect deep-fake voice
-result = model.predict('path_to_audio_file')
-print(f'Is the voice deep-fake? {result}')
-```
-
-## 🤝 Contributing
-
-1. **Fork the repository.**
-2. **Create a new branch.**
-3. **Make changes.**
-4. **Open a pull request.**
-
-### Development Setup
-
-```bash
-git clone https://github.com/farzamshahzad46/Deep-Fake-Voice-Detection.git
-cd Deep-Fake-Voice-Detection
-pip install -r requirements.txt
-```
-
-
-
-
-
-### Contact Information
-
-For any inquiries, contact: [farzamshahzad46](mailto:farzamshahzad27@gmail.com)
-
----
-
-This README file is designed to give a comprehensive and professional overview of the Deep-Fake-Voice-Detection project.
+Farzam Shahzad
+LinkedIn: https://www.linkedin.com/in/farzam-shahzad-568024283/
